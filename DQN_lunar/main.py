@@ -1,12 +1,12 @@
 import gym
-from agent import Agent
+from DQN_lunar.agent import Agent
 from utils import plotLearning
 import numpy as np
 if __name__ == '__main__':
     env = gym.make('LunarLander-v2')
-    agent = Agent(gamma=0.99, epsilon=1.0, batch_size=64, n_actions=4, eps_end=0.01, input_dims=[8], lr=0.003)
+    agent = Agent(gamma=0.99, epsilon=1.0, batch_size=64, n_actions=4, eps_end=0.01, input_dims=[8], lr=0.001)
     scores, eps_history = [], []
-    n_games = 500
+    n_games = 1000
 
     for i in range(n_games):
         score = 0
@@ -20,14 +20,14 @@ if __name__ == '__main__':
                                    observation_, done)
             agent.learn()
             observation = observation_
-        scores.appen(score)
+        scores.append(score)
         eps_history.append(agent.epsilon)
 
         avg_score = np.mean(scores[-100:])
 
-        print('episode ', i, 'score %.2f % score,'
-                'average score %.2f' % avg_score,
-                'epsilon %.2f' % agent.epsilon)
+        print('episode ', i, 'score %.2f % score,',
+              'average score %.2f' % avg_score,
+              'epsilon %.2f' % agent.epsilon)
     x = [i+1 for i in range(n_games)]
     filename = 'lunar_lander_2020.png'
     plotLearning(x, scores, eps_history, filename)
