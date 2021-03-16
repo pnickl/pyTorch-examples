@@ -1,0 +1,4 @@
+*.pth
+
+/tutorials/60_min_blitz/data/*
+
