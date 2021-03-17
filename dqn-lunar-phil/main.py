@@ -1,3 +1,7 @@
+# https://www.youtube.com/watch?v=wc-FxNENg9U
+# Machine Learning with Phil
+# Deep Q Learning is Simple with PyTorch | Full Tutorial 2020
+
 import gym
 from DQN_lunar.agent import Agent
 from utils import plotLearning
