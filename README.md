@@ -1,2 +1,2 @@
 # pyTorch_examples
-Playing with PyTorch.
+some pytorch RL examples
